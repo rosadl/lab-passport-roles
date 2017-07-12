@@ -16,7 +16,7 @@ const authRoutes = require("./routes/auth-routes");
 mongoose.connect("mongodb://localhost/ibi-ironhack");
 const session = require("express-session");
 const passport = require("passport");
-// const flash = require("connect-flash");
+const flash = require("connect-flash");
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -31,6 +31,7 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(flash());
 app.use(session({
   secret: "our-passport-local-strategy-app",
   resave: true,

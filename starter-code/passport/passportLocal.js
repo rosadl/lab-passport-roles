@@ -29,4 +29,5 @@ passport.use(new LocalStrategy((username, password, next) => {
 
     return next(null, user);
   });
+  return;
 }));
